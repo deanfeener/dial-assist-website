@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dial-Assist Support - Get help with using our dialysis adherence tracking app">
+    <title>Support - Dial-Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/app-icon.png">
+    <style>
+        .support-page {
+            padding-top: calc(60px + var(--spacing-xl));
+            padding-bottom: var(--spacing-2xl);
+        }
+
+        .support-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .support-header h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .support-header p {
+            font-size: var(--font-size-lg);
+            color: var(--gray-600);
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .contact-card {
+            padding: var(--spacing-lg);
+            background: var(--gray-50);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-card h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-card p {
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-card a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--radius-xl);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            transform: scale(1.05);
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .faq-item {
+            margin-bottom: var(--spacing-md);
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .faq-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+            border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+            transition: width 0.3s ease;
+            z-index: 1;
+        }
+
+        .faq-item:hover::after,
+        .faq-item.active::after {
+            width: 6px;
+        }
+
+        .faq-question {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--primary-purple);
+            transition: transform 0.3s ease;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            color: var(--gray-700);
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+        }
+
+        .faq-answer p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .faq-answer ul {
+            padding-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .faq-answer li {
+            margin-bottom: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/app-icon.png" alt="Dial-Assist Logo" class="nav-logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <span class="brand-name">Dial-Assist</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="index.html#download" class="btn-primary-small">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Support Content -->
+    <main class="support-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="support-header">
+                <h1>How Can We Help?</h1>
+                <p>Get support for Dial-Assist and find answers to common questions</p>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Send us an email and we'll get back to you within 24-48 hours</p>
+                    <a href="mailto:support@precisiondialysis.com">support@precisiondialysis.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📖</div>
+                    <h3>FAQ</h3>
+                    <p>Browse frequently asked questions below for quick answers</p>
+                    <a href="#faq">View FAQ</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🩺</div>
+                    <h3>Medical Questions</h3>
+                    <p>For medical concerns, always consult your healthcare provider</p>
+                    <a href="tel:911" style="background: linear-gradient(135deg, #E91E63, #D81B60);">Emergency: 911</a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What is Dial-Assist?</div>
+                    <div class="faq-answer">
+                        <p>Dial-Assist is a dialysis adherence tracking app designed to help you maintain your prescribed dialysis treatment schedule. It provides:</p>
+                        <ul>
+                            <li>Step-by-step voice-guided procedures</li>
+                            <li>Session tracking and analytics</li>
+                            <li>Photo documentation</li>
+                            <li>Supply inventory management</li>
+                            <li>Report generation and sharing</li>
+                        </ul>
+                        <p>It's a tool to support your treatment adherence, not a medical device or replacement for professional medical care.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is Dial-Assist a medical device?</div>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> Dial-Assist is an adherence tracking tool, not a medical device. It does not:</p>
+                        <ul>
+                            <li>Provide medical advice, diagnosis, or treatment</li>
+                            <li>Monitor vital signs or medical conditions</li>
+                            <li>Alert emergency services</li>
+                            <li>Replace your healthcare provider's instructions</li>
+                        </ul>
+                        <p>Always follow your healthcare provider's prescribed treatment plan and consult them with any medical questions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How much does Dial-Assist cost?</div>
+                    <div class="faq-answer">
+                        <p>Dial-Assist offers a <strong>14-day free trial</strong> so you can experience all features risk-free. After the trial, the subscription is <strong>$1.99 per month</strong>.</p>
+                        <p>You can cancel anytime—no long-term commitment required.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What devices are compatible with Dial-Assist?</div>
+                    <div class="faq-answer">
+                        <p>Dial-Assist requires:</p>
+                        <ul>
+                            <li><strong>iOS 17.0 or later</strong></li>
+                            <li>Compatible with <strong>iPhone and iPad</strong></li>
+                        </ul>
+                        <p>The app is optimized for the latest iOS versions and takes advantage of native Apple features like speech recognition and camera integration.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is my health data private and secure?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, absolutely.</strong> Your privacy is our top priority:</p>
+                        <ul>
+                            <li>All health data is stored <strong>locally on your device</strong></li>
+                            <li>We do <strong>not</strong> collect or transmit your personal health information to external servers</li>
+                            <li>Data is encrypted using iOS built-in security</li>
+                            <li>You have complete control to view, edit, export, or delete your data at any time</li>
+                        </ul>
+                        <p>Read our <a href="privacy.html">Privacy Policy</a> for complete details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I share my session data with my healthcare provider?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes.</strong> Dial-Assist allows you to generate PDF reports of your sessions and email them directly to your healthcare providers. This happens only when you explicitly choose to share, using your device's native email app.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I backup my data?</div>
+                    <div class="faq-answer">
+                        <p>Your Dial-Assist data can be backed up in two ways:</p>
+                        <ul>
+                            <li><strong>iCloud Backup:</strong> If you have iCloud backup enabled on your device, your App data is automatically included in your device backups</li>
+                            <li><strong>Export:</strong> You can export your session data as PDF reports for your own records</li>
+                        </ul>
+                        <p>Note: Deleting the app will delete all locally stored data unless you have an iCloud backup.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What types of dialysis does the app support?</div>
+                    <div class="faq-answer">
+                        <p>Dial-Assist currently supports <strong>home hemodialysis (HD)</strong> procedures. The app provides customizable step-by-step guidance that can be tailored to your specific prescribed treatment protocol.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How does voice guidance work?</div>
+                    <div class="faq-answer">
+                        <p>Dial-Assist uses your iPhone or iPad's built-in text-to-speech functionality to provide voice guidance during your dialysis procedure. This allows you to:</p>
+                        <ul>
+                            <li>Navigate through treatment steps hands-free</li>
+                            <li>Maintain sterility during procedures</li>
+                            <li>Use voice commands to control the app</li>
+                        </ul>
+                        <p>All voice processing is done on-device for privacy. You can enable/disable voice features in Settings.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I track my dialysis supplies?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes.</strong> Dial-Assist includes supply inventory management features:</p>
+                        <ul>
+                            <li>Scan barcodes to identify and track medical supplies</li>
+                            <li>Monitor inventory levels</li>
+                            <li>Generate supply order emails when running low</li>
+                            <li>Access FDA GUDID database for device information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What should I do if the app isn't working properly?</div>
+                    <div class="faq-answer">
+                        <p>If you're experiencing issues with Dial-Assist:</p>
+                        <ul>
+                            <li><strong>Restart the app:</strong> Close completely and reopen</li>
+                            <li><strong>Update iOS:</strong> Ensure you're running the latest iOS version</li>
+                            <li><strong>Update the app:</strong> Check the App Store for app updates</li>
+                            <li><strong>Check permissions:</strong> Ensure the app has necessary permissions (camera, microphone, speech recognition) in Settings</li>
+                            <li><strong>Contact support:</strong> Email us at <a href="mailto:support@precisiondialysis.com">support@precisiondialysis.com</a> with details about the issue</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I delete my data?</div>
+                    <div class="faq-answer">
+                        <p>To delete your data:</p>
+                        <ul>
+                            <li><strong>Delete specific sessions:</strong> Swipe left on any session in the app and tap Delete</li>
+                            <li><strong>Delete all data:</strong> Go to Settings > Delete My Data in the app</li>
+                            <li><strong>Uninstall the app:</strong> Deleting the app from your device will remove all locally stored data</li>
+                        </ul>
+                        <p>Note: This action cannot be undone unless you have an iCloud backup.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">I have a medical emergency. Can Dial-Assist help?</div>
+                    <div class="faq-answer">
+                        <p style="color: #E91E63; font-weight: 600;"><strong>NO. Do not rely on Dial-Assist for medical emergencies.</strong></p>
+                        <p>In case of medical emergencies or urgent health concerns:</p>
+                        <ul>
+                            <li><strong>Call 911 immediately</strong> (in the United States)</li>
+                            <li>Contact your healthcare provider</li>
+                            <li>Go to the nearest emergency room</li>
+                        </ul>
+                        <p>Dial-Assist is a tracking tool only and does not monitor your condition or alert emergency services.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Still Need Help -->
+            <section style="text-align: center; margin-top: var(--spacing-2xl); padding: var(--spacing-xl); background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(155, 89, 182, 0.1), rgba(233, 30, 99, 0.1)); border-radius: var(--radius-2xl);">
+                <h2 style="font-size: var(--font-size-3xl); margin-bottom: var(--spacing-sm);">Still Need Help?</h2>
+                <p style="font-size: var(--font-size-lg); color: var(--gray-600); margin-bottom: var(--spacing-lg);">We're here to assist you</p>
+                <a href="mailto:support@precisiondialysis.com" class="btn-primary btn-large">Contact Support</a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/app-icon.png" alt="Dial-Assist Logo" class="footer-logo">
+                    <p class="footer-tagline">Precision Dialysis Solutions</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#download">Download</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="support.html">Contact Us</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="mailto:support@precisiondialysis.com">Email Support</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Precision Dialysis Solutions. All rights reserved.</p>
+                <p class="disclaimer">Dial-Assist is a dialysis adherence tracking tool. It is not a substitute for professional medical care. Always follow your healthcare provider's instructions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality - hover to expand
+        document.querySelectorAll('.faq-item').forEach(item => {
+            // Expand on mouse enter
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('active');
+            });
+
+            // Collapse on mouse leave
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('active');
+            });
+
+            // Keep click functionality for mobile/touch devices
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
