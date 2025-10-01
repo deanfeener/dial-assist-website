@@ -130,8 +130,8 @@ Based on modern health app landing pages:
 ## Contact
 
 **Precision Dialysis Solutions**
-Email: support@precisiondialysis.com
-Website: https://precisiondialysis.com
+Email: support@dial-assist.app
+Website: https://dial-assist.app
 
 ---
 
