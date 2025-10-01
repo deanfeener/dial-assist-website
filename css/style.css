@@ -633,6 +633,10 @@ body {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
     }
+
+    .story-images {
+        position: static !important;
+    }
 }
 
 .story-images {
