@@ -614,6 +614,95 @@ body {
     line-height: 1.6;
 }
 
+/* Our Story Section */
+.our-story {
+    padding: var(--spacing-2xl) 0;
+    background: var(--white);
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    align-items: start;
+}
+
+@media (max-width: 968px) {
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+.story-images {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.story-images img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-images img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.story-text p {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-lg);
+}
+
+.story-intro {
+    font-size: var(--font-size-xl) !important;
+    color: var(--gray-900) !important;
+    line-height: 1.6 !important;
+}
+
+.story-highlight {
+    font-size: var(--font-size-2xl) !important;
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700 !important;
+    margin: var(--spacing-xl) 0 !important;
+}
+
+.story-conclusion {
+    font-size: var(--font-size-xl) !important;
+    color: var(--gray-900) !important;
+    margin-top: var(--spacing-xl) !important;
+    padding-top: var(--spacing-xl);
+    border-top: 2px solid var(--gray-200);
+}
+
+.story-tagline {
+    font-size: var(--font-size-3xl) !important;
+    font-weight: 700 !important;
+    text-align: center;
+    margin-top: var(--spacing-2xl) !important;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
 /* Self-Referential Learning Section */
 .self-learning {
     padding: var(--spacing-2xl) 0;
