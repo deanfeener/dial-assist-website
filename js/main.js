@@ -112,36 +112,118 @@
             learnMoreSection.classList.add('active');
         });
 
-        // Collapse on mouse leave
+        // Collapse on mouse leave and scroll back to section
         learnMoreSection.addEventListener('mouseleave', () => {
+            const wasActive = learnMoreSection.classList.contains('active');
             learnMoreSection.classList.remove('active');
+
+            // If section was expanded and user scrolled past it, scroll back
+            if (wasActive) {
+                setTimeout(() => {
+                    const rect = learnMoreSection.getBoundingClientRect();
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                    // Only scroll if section is above viewport (user scrolled past)
+                    if (rect.top < navbarHeight) {
+                        const targetPosition = learnMoreSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300); // Wait for collapse animation
+            }
         });
 
         // Keep click functionality for mobile/touch devices
         const header = learnMoreSection.querySelector('.learn-more-header');
         if (header) {
             header.addEventListener('click', () => {
+                const wasActive = learnMoreSection.classList.contains('active');
                 learnMoreSection.classList.toggle('active');
+
+                // Scroll back when clicking to collapse
+                if (wasActive) {
+                    setTimeout(() => {
+                        const rect = learnMoreSection.getBoundingClientRect();
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                        if (rect.top < navbarHeight) {
+                            const targetPosition = learnMoreSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 300);
+                }
             });
         }
     }
 
     // Journey Path Accordions - hover to expand
+    let pathHoverEnabled = true;
+
     document.querySelectorAll('.journey-path').forEach(path => {
         // Expand on mouse enter
         path.addEventListener('mouseenter', () => {
-            path.classList.add('active');
+            if (pathHoverEnabled) {
+                path.classList.add('active');
+            }
         });
 
-        // Collapse on mouse leave
+        // Collapse on mouse leave and scroll back to section
         path.addEventListener('mouseleave', () => {
+            const wasActive = path.classList.contains('active');
             path.classList.remove('active');
+
+            // If section was expanded and user scrolled past it, scroll back
+            if (wasActive) {
+                // Disable hover temporarily to prevent immediate re-expansion
+                pathHoverEnabled = false;
+
+                setTimeout(() => {
+                    const rect = path.getBoundingClientRect();
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                    // Only scroll if section is above viewport
+                    if (rect.top < navbarHeight) {
+                        const targetPosition = path.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Re-enable hover after scroll completes
+                    setTimeout(() => {
+                        pathHoverEnabled = true;
+                    }, 800);
+                }, 300);
+            }
         });
 
         // Keep click functionality for mobile/touch devices
         const header = path.querySelector('.path-header');
         header.addEventListener('click', () => {
+            const wasActive = path.classList.contains('active');
             path.classList.toggle('active');
+
+            // Scroll back when clicking to collapse
+            if (wasActive) {
+                setTimeout(() => {
+                    const rect = path.getBoundingClientRect();
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                    if (rect.top < navbarHeight) {
+                        const targetPosition = path.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300);
+            }
         });
     });
 
@@ -246,12 +328,51 @@
         document.querySelectorAll('.grid-card').forEach(c => c.classList.remove('active'));
     };
 
-    // Attach click events to cards
-    document.querySelectorAll('.grid-card').forEach(card => {
-        card.addEventListener('click', () => {
-            openModal(card);
+    // Side-by-Side Hover Reveal
+    const detailPanel = document.querySelector('.detail-panel-content');
+
+    if (detailPanel) {
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Get card content
+                const cardHeader = card.querySelector('.card-header').cloneNode(true);
+                const cardExpanded = card.querySelector('.card-expanded').cloneNode(true);
+
+                // Clear and populate panel
+                detailPanel.innerHTML = '';
+                detailPanel.appendChild(cardHeader);
+                cardExpanded.style.display = 'block';
+                cardExpanded.style.textAlign = 'left';
+                cardExpanded.style.marginTop = 'var(--spacing-md)';
+                detailPanel.appendChild(cardExpanded);
+
+                // Highlight active card
+                card.style.borderColor = 'var(--primary-purple)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Reset card border
+                card.style.borderColor = 'transparent';
+            });
         });
-    });
+
+        // Reset panel when not hovering
+        const wrapper = document.querySelector('.learning-grid-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mouseleave', () => {
+                detailPanel.innerHTML = '<p class="detail-prompt">Hover over any card to learn more</p>';
+            });
+        }
+    }
+
+    // Mobile: Click to expand in place
+    if (window.innerWidth <= 968) {
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('click', () => {
+                openModal(card);
+            });
+        });
+    }
 
     // Close modal on overlay click
     modalOverlay.addEventListener('click', closeModal);
@@ -266,6 +387,25 @@
     // Prevent modal content from closing when clicking inside
     modal.addEventListener('click', (e) => {
         e.stopPropagation();
+    });
+
+    // Research Accordion Items - hover to expand
+    document.querySelectorAll('.research-accordion-item').forEach(item => {
+        // Expand on mouse enter
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('active');
+        });
+
+        // Collapse on mouse leave
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('active');
+        });
+
+        // Keep click functionality for mobile/touch devices
+        const header = item.querySelector('.research-accordion-header');
+        header.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
     });
 
     // Mobile menu toggle (for future implementation)
