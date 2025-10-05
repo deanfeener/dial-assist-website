@@ -493,24 +493,8 @@ body {
 .path-header {
     text-align: center;
     padding: var(--spacing-xl);
-    cursor: pointer;
     position: relative;
     z-index: 2;
-}
-
-.path-header::after {
-    content: '+';
-    position: absolute;
-    top: var(--spacing-lg);
-    right: var(--spacing-lg);
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--primary-purple);
-    transition: transform 0.3s ease;
-}
-
-.journey-path.active .path-header::after {
-    transform: rotate(45deg);
 }
 
 .path-icon {
@@ -536,14 +520,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-    padding: 0 var(--spacing-xl);
-}
-
-.journey-path.active .path-road {
-    max-height: 1000px;
     padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
 }
 
@@ -953,12 +929,44 @@ body {
 }
 
 @media (max-width: 968px) {
+    .learning-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .learning-detail-panel {
+        display: none;
+    }
+
+    .learning-cards-grid {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
     .grid-card {
-        min-height: 180px;
+        min-height: auto;
+        cursor: pointer;
     }
 
     .grid-card:hover {
         transform: none;
+    }
+
+    .grid-card .card-expanded {
+        display: none;
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--gray-200);
+        text-align: left;
+    }
+
+    .grid-card.mobile-expanded .card-expanded {
+        display: block;
+    }
+
+    .grid-card.mobile-expanded .card-expand-indicator {
+        transform: rotate(45deg);
     }
 }
 

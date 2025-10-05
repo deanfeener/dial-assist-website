@@ -161,71 +161,7 @@
         }
     }
 
-    // Journey Path Accordions - hover to expand
-    let pathHoverEnabled = true;
-
-    document.querySelectorAll('.journey-path').forEach(path => {
-        // Expand on mouse enter
-        path.addEventListener('mouseenter', () => {
-            if (pathHoverEnabled) {
-                path.classList.add('active');
-            }
-        });
-
-        // Collapse on mouse leave and scroll back to section
-        path.addEventListener('mouseleave', () => {
-            const wasActive = path.classList.contains('active');
-            path.classList.remove('active');
-
-            // If section was expanded and user scrolled past it, scroll back
-            if (wasActive) {
-                // Disable hover temporarily to prevent immediate re-expansion
-                pathHoverEnabled = false;
-
-                setTimeout(() => {
-                    const rect = path.getBoundingClientRect();
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-
-                    // Only scroll if section is above viewport
-                    if (rect.top < navbarHeight) {
-                        const targetPosition = path.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-
-                    // Re-enable hover after scroll completes
-                    setTimeout(() => {
-                        pathHoverEnabled = true;
-                    }, 800);
-                }, 300);
-            }
-        });
-
-        // Keep click functionality for mobile/touch devices
-        const header = path.querySelector('.path-header');
-        header.addEventListener('click', () => {
-            const wasActive = path.classList.contains('active');
-            path.classList.toggle('active');
-
-            // Scroll back when clicking to collapse
-            if (wasActive) {
-                setTimeout(() => {
-                    const rect = path.getBoundingClientRect();
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-
-                    if (rect.top < navbarHeight) {
-                        const targetPosition = path.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 300);
-            }
-        });
-    });
+    // Journey paths are always expanded (no accordion behavior)
 
     // Counter animation for stats
     const animateCounter = (element, target, duration = 2000) => {
@@ -369,7 +305,8 @@
     if (window.innerWidth <= 968) {
         document.querySelectorAll('.grid-card').forEach(card => {
             card.addEventListener('click', () => {
-                openModal(card);
+                // Toggle mobile-expanded class for in-place expansion
+                card.classList.toggle('mobile-expanded');
             });
         });
     }
