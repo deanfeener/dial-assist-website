@@ -794,6 +794,12 @@ body {
 }
 
 @media (max-width: 968px) {
+    .learning-explanation,
+    .learning-summary {
+        display: block !important;
+        visibility: visible !important;
+    }
+
     .learning-grid-wrapper {
         grid-template-columns: 1fr;
     }

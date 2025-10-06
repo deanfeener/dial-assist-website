@@ -301,15 +301,15 @@
         }
     }
 
-    // Mobile: Click to expand in place
-    if (window.innerWidth <= 968) {
-        document.querySelectorAll('.grid-card').forEach(card => {
-            card.addEventListener('click', () => {
-                // Toggle mobile-expanded class for in-place expansion
+    // Mobile: Click to expand in place (works on all screen sizes)
+    document.querySelectorAll('.grid-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // On mobile (<=968px), toggle expansion in place
+            if (window.innerWidth <= 968) {
                 card.classList.toggle('mobile-expanded');
-            });
+            }
         });
-    }
+    });
 
     // Close modal on overlay click
     modalOverlay.addEventListener('click', closeModal);
