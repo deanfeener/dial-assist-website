@@ -90,16 +90,15 @@
     });
 
     // Track download button clicks
-    document.querySelectorAll('.btn-primary').forEach(button => {
+    document.querySelectorAll('.btn-primary, .btn-primary-small, .btn-pricing, .btn-large').forEach(button => {
         button.addEventListener('click', (e) => {
             // Log analytics event (placeholder for future implementation)
             console.log('Download button clicked');
 
-            // For now, these are placeholder links
-            // In production, these would link to App Store
+            // TestFlight access instructions
             if (button.getAttribute('href') === '#download' || button.getAttribute('href') === '#') {
                 e.preventDefault();
-                alert('App Store link will be added when the app is published.');
+                alert('Dial-Assist is currently in TestFlight beta.\n\nEmail betatest@dial-assist.app to request your TestFlight access code.');
             }
         });
     });
