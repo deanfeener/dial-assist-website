@@ -821,7 +821,8 @@ body {
 .learning-cards-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+    align-items: stretch;
 }
 
 @media (max-width: 968px) {
@@ -921,7 +922,7 @@ body {
 }
 
 .grid-card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     background: var(--white);
     border-radius: var(--radius-xl);
     text-align: center;
@@ -929,7 +930,8 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
-    min-height: 140px;
+    min-height: 180px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
