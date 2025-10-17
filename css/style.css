@@ -1542,10 +1542,7 @@ body {
 .price-amount .amount {
     font-size: 4rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
     line-height: 1;
 }
 
@@ -1601,19 +1598,21 @@ body {
     display: block;
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: var(--primary-blue);
     color: white;
     text-decoration: none;
-    border-radius: var(--radius-xl);
+    border-radius: 12px;
     font-weight: 700;
     text-align: center;
     transition: all 0.3s ease;
     margin-top: auto;
+    box-shadow: var(--shadow-button);
 }
 
 .btn-pricing:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(155, 89, 182, 0.4);
+    background: #3A7BC8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
 }
 
 .trial-note {
