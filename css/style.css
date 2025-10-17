@@ -5,21 +5,32 @@
 
 /* CSS Variables */
 :root {
-    /* Colors matching app icon gradient */
-    --primary-cyan: #40E0D0;
-    --primary-purple: #9B59B6;
-    --primary-pink: #E91E63;
+    /* Professional medical-grade color palette */
+    --primary-blue: #4A90E2;
+    --primary-teal: #5AB9A8;
+    --accent-purple: #7B68B6;
+    --accent-green: #6FCF97;
 
-    /* Neutral colors */
+    /* Legacy gradient colors (for app icon only) */
+    --gradient-cyan: #40E0D0;
+    --gradient-purple: #9B59B6;
+    --gradient-pink: #E91E63;
+
+    /* Warm, trustworthy neutrals */
     --white: #FFFFFF;
-    --black: #000000;
+    --background-warm: #F9F4F2;
+    --background-light: #F5F7FA;
+    --text-primary: #2C3E50;
+    --text-secondary: #546E7A;
+    --text-muted: #8A9BA8;
+    --border-color: #E8EBF0;
     --gray-50: #F9FAFB;
     --gray-100: #F3F4F6;
     --gray-200: #E5E7EB;
     --gray-300: #D1D5DB;
     --gray-600: #4B5563;
     --gray-700: #374151;
-    --gray-900: #111827;
+    --gray-900: #2C3E50;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -47,11 +58,12 @@
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* Softer, more subtle shadows */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 20px -2px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 16px 32px -4px rgba(0, 0, 0, 0.12);
+    --shadow-button: 0 2px 8px rgba(74, 144, 226, 0.25);
 }
 
 /* Reset & Base Styles */
@@ -68,8 +80,8 @@ html {
 body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--gray-900);
+    line-height: 1.7;
+    color: var(--text-primary);
     background: var(--white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -88,11 +100,10 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--white);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0;
 }
 
 .navbar .container {
@@ -116,10 +127,7 @@ body {
 .brand-name {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
 }
 
 .nav-links {
@@ -145,25 +153,27 @@ body {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    padding: 0.875rem 1.75rem;
+    background: var(--primary-blue);
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    box-shadow: var(--shadow-button);
+    transition: all 0.3s ease;
+    border: none;
 }
 
 .btn-primary-small {
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.25rem;
     font-size: var(--font-size-sm);
 }
 
 .btn-primary:hover,
 .btn-primary-small:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    background: #3A7BC8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
 }
 
 .btn-large {
@@ -183,9 +193,9 @@ body {
 
 /* Hero Section */
 .hero {
-    padding-top: calc(60px + var(--spacing-2xl));
-    padding-bottom: var(--spacing-2xl);
-    background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(155, 89, 182, 0.1), rgba(233, 30, 99, 0.1));
+    padding-top: calc(76px + var(--spacing-2xl));
+    padding-bottom: calc(var(--spacing-2xl) + var(--spacing-xl));
+    background: var(--background-warm);
 }
 
 .hero-content {
@@ -197,20 +207,17 @@ body {
 
 .hero-text h1 {
     font-size: var(--font-size-5xl);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
 }
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .hero-buttons {
@@ -257,7 +264,7 @@ body {
 
 /* Features Section */
 .features {
-    padding: var(--spacing-2xl) 0;
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
     background: var(--white);
 }
 
@@ -411,15 +418,18 @@ body {
 }
 
 .feature-card {
-    padding: var(--spacing-lg);
-    background: var(--gray-50);
+    padding: var(--spacing-xl);
+    background: var(--white);
     border-radius: var(--radius-xl);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
 }
 
 .feature-icon {
@@ -440,8 +450,8 @@ body {
 
 /* How It Works Section - Journey Paths */
 .how-it-works {
-    padding: var(--spacing-2xl) 0;
-    background: linear-gradient(135deg, rgba(64, 224, 208, 0.05), rgba(155, 89, 182, 0.05), rgba(233, 30, 99, 0.05));
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
+    background: var(--background-light);
 }
 
 .journey-paths {
@@ -608,7 +618,7 @@ body {
 
 /* Our Story Section */
 .our-story {
-    padding: var(--spacing-2xl) 0;
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
     background: var(--white);
 }
 
@@ -734,8 +744,8 @@ body {
 
 /* Self-Referential Learning Section */
 .self-learning {
-    padding: var(--spacing-2xl) 0;
-    background: linear-gradient(135deg, rgba(64, 224, 208, 0.05), rgba(155, 89, 182, 0.05), rgba(233, 30, 99, 0.05));
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
+    background: var(--background-warm);
     position: relative;
     overflow: hidden;
 }
@@ -1449,8 +1459,8 @@ body {
 
 /* Pricing Section */
 .pricing {
-    padding: var(--spacing-2xl) 0;
-    background: var(--white);
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
+    background: var(--background-light);
 }
 
 .pricing-comparison {
@@ -1647,7 +1657,7 @@ body {
 
 /* Trust Section */
 .trust {
-    padding: var(--spacing-2xl) 0;
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
     background: var(--white);
 }
 
