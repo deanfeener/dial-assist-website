@@ -897,6 +897,7 @@ body {
 /* Learning Summary */
 .learning-summary {
     margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
     padding: var(--spacing-xl);
     background: var(--white);
     border-radius: var(--radius-xl);
