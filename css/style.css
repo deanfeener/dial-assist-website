@@ -354,9 +354,45 @@ body {
 }
 
 /* Features Accordion */
+/* Feature Tier Labels */
+.feature-tier-label {
+    max-width: 900px;
+    margin: var(--spacing-2xl) auto var(--spacing-md);
+    text-align: center;
+}
+
+.feature-tier-label.core-features-label {
+    margin-top: var(--spacing-xl);
+}
+
+.feature-tier-label p {
+    margin-top: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.tier-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue));
+    color: var(--white);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.tier-badge.premium {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+}
+
 .features-accordion {
     max-width: 900px;
-    margin: var(--spacing-xl) auto 0;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.features-accordion.premium-features {
+    margin-bottom: var(--spacing-2xl);
 }
 
 .feature-accordion-item {
