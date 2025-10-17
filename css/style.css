@@ -772,24 +772,22 @@ body {
     max-width: 900px;
     margin: 0 auto var(--spacing-xl);
     text-align: center;
-    padding: var(--spacing-lg);
-    background: rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-xl);
+    background: var(--white);
     border-radius: var(--radius-xl);
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
 }
 
 .learning-explanation p {
     font-size: var(--font-size-lg);
-    color: var(--gray-700);
+    color: var(--text-primary);
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
 }
 
 .learning-explanation strong {
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
     font-weight: 700;
 }
 
@@ -838,9 +836,9 @@ body {
     top: 100px;
     height: 100%;
     padding: var(--spacing-xl);
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: var(--primary-blue);
     border-radius: var(--radius-2xl);
-    border: 2px solid transparent;
+    box-shadow: var(--shadow-lg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -898,16 +896,18 @@ body {
 /* Learning Summary */
 .learning-summary {
     margin-top: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    background: linear-gradient(135deg, rgba(64, 224, 208, 0.05), rgba(155, 89, 182, 0.05), rgba(233, 30, 99, 0.05));
+    padding: var(--spacing-xl);
+    background: var(--white);
     border-radius: var(--radius-xl);
     text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
 }
 
 .learning-summary p {
     font-size: var(--font-size-lg);
     line-height: 1.8;
-    color: var(--gray-700);
+    color: var(--text-primary);
     margin: 0;
 }
 
@@ -921,14 +921,11 @@ body {
 }
 
 .grid-card {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     background: var(--white);
     border-radius: var(--radius-xl);
     text-align: center;
-    border: 2px solid transparent;
-    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
@@ -936,12 +933,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: var(--shadow-sm);
 }
 
 .grid-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-purple);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
 }
 
 @media (max-width: 968px) {
@@ -1043,6 +1041,7 @@ body {
     font-size: var(--font-size-xl);
     font-weight: 600;
     margin: 0;
+    color: var(--text-primary);
 }
 
 /* Stat styling in card header */
@@ -1059,25 +1058,19 @@ body {
 .stat-number {
     font-size: var(--font-size-5xl);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
 }
 
 .stat-suffix {
     font-size: var(--font-size-5xl);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
 }
 
 .stat-card-title {
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     text-align: center;
     margin-top: var(--spacing-xs);
     line-height: 1.3;
