@@ -70,25 +70,6 @@
         observer.observe(el);
     });
 
-    // Features Accordion functionality - hover to expand
-    document.querySelectorAll('.feature-accordion-item').forEach(item => {
-        // Expand on mouse enter
-        item.addEventListener('mouseenter', () => {
-            item.classList.add('active');
-        });
-
-        // Collapse on mouse leave
-        item.addEventListener('mouseleave', () => {
-            item.classList.remove('active');
-        });
-
-        // Keep click functionality for mobile/touch devices
-        const header = item.querySelector('.feature-accordion-header');
-        header.addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
-    });
-
     // Track download button clicks
     document.querySelectorAll('.btn-primary, .btn-primary-small, .btn-pricing, .btn-large').forEach(button => {
         button.addEventListener('click', (e) => {
