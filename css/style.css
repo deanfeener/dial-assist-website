@@ -239,10 +239,10 @@ body {
     position: relative;
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
     border-radius: var(--radius-2xl);
     padding: 2rem;
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 20px 40px -10px rgba(74, 144, 226, 0.4);
     animation: float 3s ease-in-out infinite;
 }
 
@@ -306,7 +306,7 @@ body {
     right: 0;
     width: 0;
     height: 100%;
-    background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(180deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
     border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
     transition: width 0.3s ease;
     z-index: 1;
@@ -321,12 +321,12 @@ body {
 }
 
 .feature-accordion-item:hover {
-    border-color: var(--primary-purple);
+    border-color: var(--primary-blue);
     box-shadow: var(--shadow-md);
 }
 
 .feature-accordion-item.active {
-    border-color: var(--primary-purple);
+    border-color: var(--accent-purple);
     box-shadow: var(--shadow-lg);
 }
 
@@ -489,7 +489,7 @@ body {
     right: 0;
     width: 0;
     height: 100%;
-    background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(180deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
     border-radius: 0 var(--radius-2xl) var(--radius-2xl) 0;
     transition: width 0.3s ease;
     z-index: 1;
@@ -546,14 +546,14 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-xl);
     font-weight: 700;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
 }
 
 .step-content {
@@ -597,12 +597,13 @@ body {
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue));
     color: var(--white);
     font-size: var(--font-size-2xl);
     font-weight: 700;
     border-radius: 50%;
     margin-bottom: var(--spacing-md);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
 }
 
 .step h3 {
@@ -1635,11 +1636,12 @@ body {
 }
 
 .trial-badge {
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
     padding: var(--spacing-lg);
     border-radius: var(--radius-xl);
     text-align: center;
     color: var(--white);
+    box-shadow: var(--shadow-md);
 }
 
 .trial-badge strong {
@@ -1702,8 +1704,8 @@ body {
 
 /* Download CTA Section */
 .download-cta {
-    padding: var(--spacing-2xl) 0;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    padding: calc(var(--spacing-2xl) + var(--spacing-xl)) 0;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
     color: var(--white);
 }
 
