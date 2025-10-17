@@ -1480,20 +1480,20 @@ body {
 }
 
 .pricing-card.essential {
-    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-teal), var(--primary-blue));
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
 
 .pricing-card.premium {
-    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
 
 .pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(74, 144, 226, 0.3);
 }
 
 .pricing-badge {
@@ -1501,14 +1501,15 @@ body {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue));
     color: white;
     padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-full);
+    border-radius: 20px;
     font-size: var(--font-size-sm);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: var(--shadow-md);
 }
 
 .pricing-header {
@@ -1542,7 +1543,10 @@ body {
 .price-amount .amount {
     font-size: 4rem;
     font-weight: 800;
-    color: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     line-height: 1;
 }
 
@@ -1598,7 +1602,7 @@ body {
     display: block;
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    background: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
     color: white;
     text-decoration: none;
     border-radius: 12px;
@@ -1610,9 +1614,9 @@ body {
 }
 
 .btn-pricing:hover {
-    background: #3A7BC8;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
+    background: linear-gradient(135deg, #3A7BC8, #6854A0);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
 
 .trial-note {
