@@ -770,7 +770,7 @@ body {
 
 .learning-explanation {
     max-width: 900px;
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 auto var(--spacing-2xl);
     text-align: center;
     padding: var(--spacing-xl);
     background: var(--white);
