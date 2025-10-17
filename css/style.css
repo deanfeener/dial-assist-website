@@ -681,10 +681,7 @@ body {
 
 .story-highlight {
     font-size: var(--font-size-2xl) !important;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue) !important;
     font-weight: 700 !important;
     margin: var(--spacing-xl) 0 !important;
 }
@@ -703,7 +700,7 @@ body {
     text-align: center;
     margin-top: var(--spacing-2xl) !important;
     padding: var(--spacing-xl);
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+    background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
