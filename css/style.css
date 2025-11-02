@@ -1810,6 +1810,120 @@ body {
     margin-top: var(--spacing-sm);
 }
 
+/* TestFlight Modal */
+.testflight-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    animation: fadeIn 0.2s ease;
+}
+
+.testflight-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    width: 90%;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+}
+
+.testflight-modal-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.testflight-modal-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.testflight-modal-body {
+    padding: var(--spacing-lg);
+}
+
+.testflight-modal-body p {
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.testflight-modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.testflight-modal-body strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.testflight-modal-actions {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+}
+
+.modal-btn {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-btn-primary {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.modal-btn-primary:hover {
+    background: #3A7BC8;
+    transform: translateY(-1px);
+}
+
+.modal-btn-secondary {
+    background: var(--gray-200);
+    color: var(--text-primary);
+}
+
+.modal-btn-secondary:hover {
+    background: var(--gray-300);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
 /* Footer */
 .footer {
     padding: var(--spacing-2xl) 0 var(--spacing-lg);

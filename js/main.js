@@ -79,10 +79,76 @@
             // TestFlight access instructions
             if (button.getAttribute('href') === '#download' || button.getAttribute('href') === '#') {
                 e.preventDefault();
-                alert('Dial-Assist is currently in TestFlight beta.\n\nEmail betatest@dial-assist.app to request your TestFlight access code.');
+                showTestFlightModal();
             }
         });
     });
+
+    // TestFlight Modal
+    function showTestFlightModal() {
+        const email = 'betatest@dial-assist.app';
+
+        // Create modal overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'testflight-modal-overlay';
+
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'testflight-modal';
+        modal.innerHTML = `
+            <div class="testflight-modal-header">
+                <h3>www.dial-assist.app says</h3>
+            </div>
+            <div class="testflight-modal-body">
+                <p>Dial-Assist is currently in TestFlight beta.</p>
+                <p>Email <strong>${email}</strong> to request your TestFlight access code.</p>
+            </div>
+            <div class="testflight-modal-actions">
+                <button class="modal-btn modal-btn-secondary" id="copyEmailBtn">Copy Email</button>
+                <button class="modal-btn modal-btn-primary" id="closeModalBtn">OK</button>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(modal);
+
+        // Close modal function
+        const closeModal = () => {
+            overlay.remove();
+            modal.remove();
+        };
+
+        // Copy email function
+        const copyEmail = () => {
+            navigator.clipboard.writeText(email).then(() => {
+                const copyBtn = document.getElementById('copyEmailBtn');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.style.background = 'var(--accent-green)';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+                alert('Email: ' + email);
+            });
+        };
+
+        // Event listeners
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+        document.getElementById('copyEmailBtn').addEventListener('click', copyEmail);
+        overlay.addEventListener('click', closeModal);
+
+        // Close on Escape key
+        const escapeHandler = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', escapeHandler);
+            }
+        };
+        document.addEventListener('keydown', escapeHandler);
+    }
 
     // Learn More accordion in self-learning section - hover to expand
     const learnMoreSection = document.querySelector('.learn-more');
