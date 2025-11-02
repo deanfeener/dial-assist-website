@@ -1804,19 +1804,10 @@ body {
     opacity: 0.9;
 }
 
-.cta-content .btn-primary {
-    background: var(--white);
-    color: var(--primary-purple);
-    margin-bottom: var(--spacing-sm);
-}
-
-.cta-content .btn-primary:hover {
-    background: var(--gray-50);
-}
-
 .cta-note {
     font-size: var(--font-size-sm);
     opacity: 0.8;
+    margin-top: var(--spacing-sm);
 }
 
 /* Footer */
