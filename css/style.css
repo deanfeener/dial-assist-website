@@ -1773,6 +1773,19 @@ body {
     color: var(--white);
 }
 
+.download-cta .btn-primary {
+    background: var(--white);
+    color: var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.download-cta .btn-primary:hover {
+    background: var(--gray-100);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 .cta-content {
     text-align: center;
     max-width: 700px;
