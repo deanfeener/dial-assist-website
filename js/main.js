@@ -463,4 +463,66 @@
         startAutoPlay();
     }
 
+    // Connect Screenshots Carousel
+    const connectCarousel = document.querySelector('.connect-screenshots-carousel');
+    if (connectCarousel) {
+        const slides = connectCarousel.querySelectorAll('.connect-carousel-slide');
+        const dots = connectCarousel.querySelectorAll('.connect-dot');
+        const labels = connectCarousel.querySelectorAll('.connect-label-text');
+        let currentSlide = 0;
+        let autoPlayInterval;
+        let isPaused = false;
+
+        function showConnectSlide(index) {
+            // Remove active class from all slides, dots, and labels
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            labels.forEach(label => label.classList.remove('active'));
+
+            // Add active class to current slide, dot, and label
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            labels[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextConnectSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showConnectSlide(currentSlide);
+        }
+
+        function startConnectAutoPlay() {
+            autoPlayInterval = setInterval(nextConnectSlide, 3500);
+        }
+
+        function stopConnectAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showConnectSlide(index);
+                stopConnectAutoPlay();
+                if (!isPaused) {
+                    startConnectAutoPlay();
+                }
+            });
+        });
+
+        // Pause on hover
+        connectCarousel.addEventListener('mouseenter', () => {
+            isPaused = true;
+            stopConnectAutoPlay();
+        });
+
+        connectCarousel.addEventListener('mouseleave', () => {
+            isPaused = false;
+            startConnectAutoPlay();
+        });
+
+        // Start auto-play
+        startConnectAutoPlay();
+    }
+
 })();

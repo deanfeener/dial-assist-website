@@ -1,0 +1,8 @@
+# Robots.txt for Dial-Assist
+# https://www.dial-assist.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.dial-assist.app/sitemap.xml
